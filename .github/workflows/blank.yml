@@ -13,19 +13,6 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
   inputs:
-      logLevel:
-        description: 'Log level'
-        required: true
-        default: 'warning'
-        type: choice
-        options:
-        - info
-        - warning
-        - debug
-      tags:
-        description: 'Test scenario tags'
-        required: false
-        type: boolean
       environment:
         description: 'Environment to run tests against'
         type: environment
@@ -45,7 +32,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: ${{ inputs.environment }}
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
